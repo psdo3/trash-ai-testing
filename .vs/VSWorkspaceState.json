@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend-react",
+    "\\frontend-react\\public",
+    "\\frontend-react\\src",
+    "\\frontend-react\\src\\data",
+    "\\frontend-react\\src\\data\\services",
+    "\\frontend-react\\src\\data\\store",
+    "\\frontend-react\\src\\pages",
+    "\\frontend-react\\src\\pages\\components"
+  ],
+  "SelectedNode": "\\frontend-react\\src\\pages\\components\\upload.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 
-import SimpleCard from "./components/SimpleCard";
+import Upload from "./components/Upload";
 
 import { apiGetMessages } from "../data/store/sagas/actions/apiMessageActions";
 
@@ -31,7 +31,7 @@ class MainPage extends React.Component {
                 <Box my={4} className={classes.root}>
                     {
                         this.props.messages.map((message, index) => {
-                            return ( <SimpleCard key={message.id} message={ message.message } /> );
+                            return ( <Upload key={message.id} message={ message.message } /> );
                         })
                     }
                 </Box>
