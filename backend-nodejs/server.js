@@ -2,7 +2,7 @@ const express = require('express');
 const fileUpload = require('express-fileupload')
 const app = express();
 
-
+import { UploadedFile } from 'express-fileupload';
 
 const PORT = 5000;
 
@@ -16,7 +16,7 @@ app.post('/upload', (req,res) =>{
         return res.status(400).json({msg: 'No file uploaded'});
     }
 
-    const file = req.files.file;
+    const file = req.files.file ;
 
     file.mv(`${__dirname}/uploads/${file.name}`, err => {
         if(err) {
