@@ -25,3 +25,10 @@ The Platform Training reads data from the Data Storage located where we have gra
 The team is searching for a model that has been trained as a proof of concept (POC). POCs has the intention to prove that new technology/service/idea is viable for the market. The POCs involves a developers examining the client’s requirements, selecting a few to focus on, and creating a proof of concept to meet those requirements.
 Trained model is available for view.
 https://colab.research.google.com/drive/1QKI1EzHGkEwc1PMsfqJ3Mc87NfmTUsx9?usp=sharing
+
+
+
+
+
+
+When I try to send Travis CI again it did not recive updated version, I deleted all my fork and tried again, I deleted and write .travis file.. so on and on, I couldn't triger the travis again
