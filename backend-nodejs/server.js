@@ -4,6 +4,7 @@ const {PythonShell} = require('python-shell');
 const app = express();
 const PORT = 5000;
 
+app.use(express.static(__dirname + '/public'));
 app.use(fileUpload());
 app.post('/images', (req,res) =>{
     if (req.files == null) {
@@ -31,7 +32,7 @@ app.post('/images', (req,res) =>{
     PythonShell.run('model.py', options, function (err, result) {
         if (err) throw err;
         console.log(result.toString());
-        res.sendFile(`${__dirname}/output/${file.name}`);
+        //res.sendFile(`${__dirname}/public/output/${file.name}`);
         //res.send(result.toString());
     });
 });
