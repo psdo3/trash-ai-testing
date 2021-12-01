@@ -1,6 +1,6 @@
 language: node.js
 node.js:
-  - "stable"
+  - stable
 
 os: linux
 group: edge
