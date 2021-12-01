@@ -1,3 +1,70 @@
 language: node.js
 node.js:
   - "stable"
+
+os: linux
+group: edge
+dist: trusty
+# build all branches except master and release
+# but allways build tags
+if: (branch != master AND NOT branch =~ /^release.*/) OR tag IS present
+
+stages:
+  # test: simply execute maven tests on multiple JDKs
+  - test
+  # Do this in an extra step since this is only required once
+  - verify
+  # Skip all verifications and just deploy/sign the artifacts
+  - name: deploy
+    if: repo = "brkkrgz/trash-ai-testing" AND (branch = master OR tag IS present)
+
+language: java
+jdk:
+# skip openjdk8 since this is used in the verify stage which also runs tests
+# - openjdk8
+  - oraclejdk8
+  - openjdk12
+
+before-script:
+  - composer install --no-interaction
+
+install:
+  - java -version
+  - env | sort
+  - gpg --version
+  - gpg2 --version
+
+matrix:
+  fast_finish: true
+  include:
+    - stage: verify
+     
+      jdk: openjdk8
+
+    - stage: deploy
+      script: ./mvnw --settings deploy/settings.xml -B -U -Pdeploy-only deploy
+      jdk: openjdk8
+      cache: false
+
+cache:
+  directories:
+    - $HOME/.m2
+    
+language: go
+go:
+  - 1.13.x
+
+install: true
+
+script:
+  - script/test
+  - go build
+
+notifications:
+  email: false
+  slack: false
+
+branches:
+  only:
+  - master
+  - v2.0
