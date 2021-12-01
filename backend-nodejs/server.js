@@ -1,27 +1,41 @@
 const express = require('express');
-
-const app = express();
+const fileUpload = require('express-fileupload')
 const {PythonShell} = require('python-shell');
+const app = express();
+const PORT = 5000;
 
-const PORT = 3000;
-const IMAGES_PATH = "C:\\Users\\Huy\\Documents\\Code\\trash-ai\\backend-nodejs\\output\\out.jpg";
+app.use(fileUpload());
+app.post('/images', (req,res) =>{
+    if (req.files == null) {
+        return res.status(400).json({msg: 'No file uploaded'});
+    }
 
-app.get("/", (req, res, next) => {
+    const file = req.files.file;
+
+    file.mv(`${__dirname}/images/${file.name}`, err => {
+        if(err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({fileName: file.name, filePath: `/images/${file.name}`});
+    })
+
     let options = {
         mode: 'text',
         pythonOptions: ['-u'],
         pythonPath: 'D:/miniconda3/envs/imageai/python',
-        args: []
+        args: [file.name]
     };
 
     PythonShell.run('model.py', options, function (err, result) {
         if (err) throw err;
         console.log(result.toString());
-        res.sendFile(IMAGES_PATH);
+        res.sendFile(`${__dirname}/output/${file.name}`);
         //res.send(result.toString());
     });
 });
 
 app.listen(PORT, () => {
-    console.log('Running server on port %d...', PORT);
+    console.log(`Server started on port ${PORT}...`);
 })
