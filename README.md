@@ -11,6 +11,8 @@ Once you download the file, place it in the _models_ folder.
 2. Git bash in the directory: backend-nodejs
 3. Type 'node server.js' in the terminal
 4. Go to 'localhost:3000' in your browser
+5. Upload images
+6. Go to 'localhost:5000/_img-file-name_'
 
 [![Build Status](https://app.travis-ci.com/brkkrgz/trash-ai-testing.svg?branch=main)](https://app.travis-ci.com/brkkrgz/trash-ai-testing)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
