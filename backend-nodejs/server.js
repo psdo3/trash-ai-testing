@@ -28,10 +28,11 @@ app.post('/images', (req,res) =>{
         pythonPath: 'D:/miniconda3/envs/imageai/python',
         args: [file.name]
     };
-
+    console.log("Received file %s", file.name);
+    console.log("Processing...");
     PythonShell.run('model.py', options, function (err, result) {
         if (err) throw err;
-        console.log(result.toString());
+        console.log("Classification complete");
         //res.sendFile(`${__dirname}/public/output/${file.name}`);
         //res.send(result.toString());
     });
