@@ -1,10 +1,10 @@
-Install.md
+## Install.md
 Front end side:
-  Install Nodejs if you do not have it
-  1.git clone https://github.com/psdo3/trash-ai-testing.git 
-  2.cd frontend-react
-  3.npm install
-  4.npm run start (should open inside http://localhost)
+ - Install Nodejs if you do not have it
+ - 1.git clone https://github.com/psdo3/trash-ai-testing.git 
+ - 2.cd frontend-react
+ - 3.npm install
+ - 4.npm run start (should open inside http://localhost)
   
   Back end side:
     # Setup
