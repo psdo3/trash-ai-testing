@@ -20,7 +20,7 @@ Once you download the file, place it in the _models_ folder.
 Training Data Storage:
 //learning algorithm
 
-We create a Training Data storage to contain all the data we will use to build our IA, working with a Machine Learning algorithm. With the datasets in our machine learning, we can train the ML model.
+We create a Training Data storage to contain all the data we will use to build our AI, working with a Machine Learning algorithm. With the datasets in our machine learning, we can train the ML model.
 The Platform Training reads data from the Data Storage located where we have granted access to our AI platform training.
 
 
